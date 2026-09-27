@@ -1,0 +1,18 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# C++ Build
+cpp/build/
+*.o
+*.out
+
+# Data & Weights
+data/*
+!data/.keep
+models/*
+!models/.keep
+
+# OS
+.DS_Store
