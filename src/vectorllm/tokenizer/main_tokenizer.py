@@ -12,8 +12,21 @@ class MainTokenizer(TrainableTokenizer):
             stats[pair] = stats.get(pair, 0) + 1
         return stats
 
-    def merge(self):
-        pass
+    def merge(self, token_ids, pair, new_index):
+
+        merged = []
+        i = 0
+        num_tokens = len(token_ids)
+
+        while i < num_tokens:
+            if (i < num_tokens - 1) and (token_ids[i] == pair[0]) and (token_ids[i + 1] == pair[1]):
+                merged.append(new_index)
+                i += 2
+            else:
+                merged.append(token_ids[i])
+                i += 1
+
+        return merged
 
     def train(self):
         pass
